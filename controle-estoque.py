@@ -1,3 +1,6 @@
+# To open an external terminal: Ctrl + Shift + C
+# to run this python file: python controle-estoque.py
+
 category = input('Categoria do produto: ')
 code = int(input('Código do produto: '))
 name = input('Nome do produto: ')
