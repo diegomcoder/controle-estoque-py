@@ -5,26 +5,21 @@ stock = []
 
 # START OF THE PROGRAM
 def main():
+    userName = input("\nQual o seu nome? ")
 
-    options = {
-        "1": "Iniciar com estoque vazio",
-        "2": "Carregar estoque demonstrativo",
-        "3": "Fechar o controle de estoque"}
-
-    print('\n______________________________________________________\nCONTROLE DE ESTOQUE')
-    print(f'\n(1) {options["1"]}\n(2) {options["2"]}\n(3) {options["3"]}\n')
+    print(f'\n______________________________________________________\n\nSeja bem vindo (a) {userName} 😉')
+    print('\n(1) Iniciar com estoque vazio\n(2) Carregar estoque demonstrativo\n(3) Fechar o controle de estoque\n')
 
     while True:
         userInput = input('INSIRA O NÚMERO DO COMANDO DESEJADO: ')
-        if userInput in options.keys():
+        if userInput in ["1", "2", "3"]:
             break
 
     if userInput == "3":
+        print("\n\nATÉ MAIS! 😊\n")
         return
-    
     elif userInput == "2":
         loadDemoStock()
-
     else:
         registerProduct()
 
@@ -35,33 +30,9 @@ def loadDemoStock():
 
 # REGISTER FIRST PRODUCTS
 def registerProduct():
-    options = {
-        "1": "Sim, cadastrar um produto",
-        "2": "Voltar ao menu anterior",
-        "3": "Fechar o controle de estoque"}
-    
     print("\n______________________________________________________\nBEM VINDO AO CONTROLE DE ESTOQUE!")
     print("\nCADASTRE O SEU PRIMEIRO PRODUTO\n")
-    print(f'\n(1) {options["1"]}\n(2) {options["2"]}\n(3) {options["3"]}\n')
+    print('\n(1) Sim, cadastrar um produto\n(2) Voltar ao menu anterior\n(3) Fechar o controle de estoque\n')
 
 # CALL THE START OF THE PROGRAM
 main()
-
-
-"""
-category = input('Categoria do produto: ')
-code = int(input('Código do produto: '))
-name = input('Nome do produto: ')
-description = input('Descrição do produto: ')
-price = input('Preço do produto: ')
-
-print()
-print('###############################')
-print(f'Categoria do produto: {category}')
-print(f'Código do produto: {code}')
-print(f'Nome do produto: {name}')
-print(f'Descrição do produto: {description}')
-print(f'Preço do produto: {price}')
-print('###############################')
-print()
-"""
