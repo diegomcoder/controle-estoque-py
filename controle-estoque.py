@@ -1,5 +1,9 @@
 # To open an external terminal: Ctrl + Shift + C
 # to run this python file: python controle-estoque.py
+import json
+
+with open("demo_stock.json", encoding='utf-8') as my_json:
+    demo_stock = json.load(my_json)
 
 stock = []
 
@@ -25,8 +29,10 @@ def main():
 
 # LOAD DEMONSTRATIVE STOCK
 def loadDemoStock():
+    
     print("\n______________________________________________________\nBEM VINDO AO CONTROLE DE ESTOQUE!")
     print("\nESTOQUE DEMONSTRATIVO CARREGADO!\nSaldo de estoque: 439 produtos\nQuantidade de categorias: 25\nSaldo monetário de estoque: R$ 315.087,00\n")
+    print(demo_stock)
 
 # REGISTER FIRST PRODUCTS
 def registerProduct():
