@@ -1,0 +1,22 @@
+{
+    "Audio": [
+        { "Code": "390098", "Name": "Soundbar Sony MC370", "Description": "Barra de som de 2.1 canais com subwoofer 5 polegadas", "Price": 989.48, "Amount": 25 },
+        {"Code": "934733", "Name": "Caixa som Bombox", "Description": "Caixa de som JBL 30w portatil e à prova dagua", "Price": 2123.54, "Amount": 33}
+    ],
+    "Móveis": [
+        {"Code": "186444", "Name": "Escrivaninha Movesa", "Description": "Escrivaninha mdf 1.2cm 1.5cm de qualidade", "Price": 562.99, "Amount": 19}
+    ],
+    "Games": [
+        {"Code": "100034", "Name": "Principe da Pérsia Xbox-one", "Description": "Jogo X-Box One Principe da Persia com poster 3x4", "Price": 480.99, "Amount": 126}
+    ],
+    "Informática": [
+        { "Code": "754867", "Name": "Notebook Samsung Essentials E20", "Description": "Notebook da Samsung com 1TB HD Core i3 8GB RAM tela FullHD", "Price": 2498.56, "Amount": 18 },
+        {"Code": "934733", "Name": "Impressora HP IL2607", "Description": "Impressora HP jato de tinta multifuncional com WI-FI", "Price": 879.05, "Amount": 22}
+    ],
+    "Livros": [
+        {"Code": "198754", "Name": "O Menino de Pijama Listrado", "Description": "O Livro conta a história de um menino que, levado pela curiosidade...", "Price": 67.99, "Amount": 41}
+    ],
+    "Mercado": [
+        {"Code": "568734", "Name": "Sabão em pó Brilhante", "Description": "Sabão em Pó Brilhante Cuidado Total - Roupas Brancas e Coloridas Original 1,6kg", "Price": 28.90, "Amount": 326}
+    ]
+}
