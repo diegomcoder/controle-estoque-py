@@ -1,7 +1,6 @@
 ## PARA EXECUTAR ESSE PROJETO É PRECISO TER OS SEGUINTES RECURSOS:
-
-(1) Ter o interpretador Python e o gerenciador pip instalados no seu computador
-(2) Ter a biblioteca Pandas também instalada em sua máquina
+* Ter o interpretador Python e o gerenciador pip instalados no seu computador
+* Ter a biblioteca Pandas também instalada em sua máquina
 
 
 ## PASSOS PARA INSTALAÇÃO DOS RECURSOS:
