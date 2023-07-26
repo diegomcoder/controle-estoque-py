@@ -3,5 +3,5 @@ def get_monetary_balance(stock):
 
     for category in stock:
         for product in stock[category]:
-            stockValue += float(product["Price"])
+            stockValue += float(product["Price"]) * int(product["Amount"])
     return round(stockValue, 2)

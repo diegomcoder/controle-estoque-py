@@ -1,5 +1,5 @@
 import methods
-import pandas as pd
+import pandas as pandas
 import os
 
 # UPTADE STOCK STATUS
@@ -12,7 +12,8 @@ def update_stock_status(stock):
 
     for category in stock:
         rows.append(category)
-        data.append(methods.get_amount_and_balance(stock, category))
+
+    data = methods.get_amount_and_balance(stock)
 
     physicalBalance = methods.get_physical_balance(stock)
     monetaryBalance = methods.get_monetary_balance(stock)
@@ -22,7 +23,7 @@ def update_stock_status(stock):
     print("🔴 INVENTÁRIO DE ESTOQUE AGORA:")
 
     if physicalBalance > 0:
-        tabela = pd.DataFrame(data=data, index=rows, columns=columns)
+        tabela = pandas.DataFrame(data=data, index=rows, columns=columns)
         print("____________________________________________")
         print(tabela)
         print("____________________________________________\n")
