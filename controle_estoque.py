@@ -1,9 +1,11 @@
 import pandas as pd
+import os
+
 stock = []
 
 # START OF THE PROGRAM
 def main():
-    print('___________________________________________________________________________________________________\n')
+    os.system("Clear")
     print("🔴 BEM VINDO!\n")
     print("(1) Iniciar com estoque vazio")
     print("(2) Carregar estoque demonstrativo")
@@ -20,7 +22,7 @@ def main():
     else:
         updateStockStatus()
 
-# GET USER'S COMMAND
+# TAKE AS IMPUT THE NUMBER OF SELECTABLE COMMANDS AND RETURN A NUMBER THAT REPRESENTS THE USER'S CHOICE
 def getUserCommand(param):
     optionsNumbers = []
 
@@ -32,55 +34,49 @@ def getUserCommand(param):
         if userInput in optionsNumbers:
             return userInput
 
-# LOAD DEMONSTRATIVE STOCK
+# LOADS A DEMONSTRATIVE STOCK THAT'S STORED ON AN EXTERNAL JSON FILE
 def loadDemoStock():
     import json
     with open("./data/demo_stock.json", encoding='utf-8') as my_json:
         global stock
         stock = json.load(my_json)
 
-    print("___________________________________________________________________________________________________")
+    os.system("Clear")
     print("ESTOQUE DEMONSTRATIVO CARREGADO!")
 
+# TAKES A CATEGORY AS INPUT AND RETURNS AN ARRAY WITH ITS PRODUCTS AMOUNT AND ITS PRODUCTS BALANCE
+def getAmountAndBalance(category):
+    amount = 0
+    balance = 0
+
+    for product in stock[category]:
+        
+        amount += product["Amount"]
+        balance += round(product["Price"] * product["Amount"], 2)
+        return [f"{amount} produtos", f"R$ {balance}"]
+        
 # UPTADE STOCK STATUS
 def updateStockStatus():
-    colunas = ["SALDO FÍSICO", "SALDO MONETÁRIO"]
-    linhas = []
-    dados = []
+    physicalBalance = 0
+    monetaryBalance = 0
+    columns = ["SALDO FÍSICO", "SALDO MONETÁRIO"]
+    rows = []
+    data = []
 
     for category in stock:
-        linhas.append(category)
-        amount = 0
-        balance = 0
+        rows.append(category)
+        data.append(getAmountAndBalance(category))
+    
+    os.system("Clear")
+    print("🔴 INVENTÁRIO DE ESTOQUE AGORA:\n_________________________________________")
 
-        for product in stock[category]:
-            
-            amount += product["Amount"]
-            balance += round(product["Price"] * product["Amount"], 2)
-        
-        dados.append([f"{amount} produtos", f"R$ {balance}"])
-
-    print('___________________________________________________________________________________________________\n')
-    print("🔴 INVENTÁRIO DE ESTOQUE AGORA:\n")
-
-    tabela = pd.DataFrame(data=dados, index=linhas, columns=colunas)
+    tabela = pd.DataFrame(data=data, index=rows, columns=columns)
     print(tabela)
+
+    print("_________________________________________\n")
+    print(f"TOTAL DE PRODUTOS: {physicalBalance}")
+    print(f"VALOR DE ESTOQUE: R$ {monetaryBalance}")
     print()
-
-    """
-                    SALDO FÍSICO        SALDO MONETÁRIO
-    Audio:          12 produtos         R$ 3434,00
-    Móveis:         45 produtos         R$ 838,00
-    Games:          45 produtos         R$ 23,00
-    Informática:    32 produtos         R$ 8005,87
-    Livros:         11 produtos         R$ 238,89
-    Mercado:        65 produtos         R$ 189,90
-
-    TOTAL DE PRODUTOS: 3453
-    VALOR DE ESTOQUE: R$ 23.902,00
-
-    """
-    # print(f"{stock}\n")
     print("(1) Atualizar inventário de estoque")
     print("(2) Cadastrar um novo produto")
     print("(3) Fazer uma consulta de estoque")
@@ -100,18 +96,18 @@ def updateStockStatus():
 
 # STOCK QUERY
 def stockQuery():
-    print("___________________________________________________________________________________________________")
+    os.system("Clear")
     print("AMBIENTE DE CONSULTA DE ESTOQUE")
 
 # REGISTER FIRST PRODUCTS
 def registerProduct():
-    print("___________________________________________________________________________________________________")
+    os.system("Clear")
     print("AMBIENTE DE CADASTRO DE NOVO PRODUTO")
 
 # EXIT PROGRAM
 def exitProgram():
-    print("___________________________________________________________________________________________________\n")
-    print("ATÉ MAIS! 😊")
+    os.system("Clear")
+    print("\nATÉ MAIS! 😊\n")
 
 # CALL THE START OF THE PROGRAM
 main()
