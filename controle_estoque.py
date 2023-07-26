@@ -1,3 +1,4 @@
+import pandas as pd
 stock = []
 
 # START OF THE PROGRAM
@@ -43,30 +44,28 @@ def loadDemoStock():
 
 # UPTADE STOCK STATUS
 def updateStockStatus():
-    colunas = ["QUANTIDADE EM ESTOQUE", "VALOR EM ESTOQUE"]
+    colunas = ["SALDO FÍSICO", "SALDO MONETÁRIO"]
     linhas = []
     dados = []
 
     for category in stock:
         linhas.append(category)
-        # print("Categoria: " + category)
+        amount = 0
+        balance = 0
 
         for product in stock[category]:
-            # print("Produto: " + product)
-
-            amount = 0
-            balance = 0
-
+            
             amount += product["Amount"]
             balance += round(product["Price"] * product["Amount"], 2)
-            dados.append([amount, balance])
+        
+        dados.append([f"{amount} produtos", f"R$ {balance}"])
 
     print('___________________________________________________________________________________________________\n')
     print("🔴 INVENTÁRIO DE ESTOQUE AGORA:\n")
 
-    print(colunas)
-    print(linhas)
-    print(dados)
+    tabela = pd.DataFrame(data=dados, index=linhas, columns=colunas)
+    print(tabela)
+    print()
 
     """
                     SALDO FÍSICO        SALDO MONETÁRIO
