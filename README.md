@@ -23,6 +23,6 @@
 ## PASSOS PARA EXECUTAR O PROJETO
 * Baixe esse projeto, clicando no botão azul "Code", e depois em "Download ZIP";
 * Extraia o projeto, entre no interior da pasta "controle-estoque-py-main" até encontrar os arquivos e uma pasta, clique com o botão direito do mouse e escolha a opção "Abrir no terminal";
-* Digite no terminal o comando "python con" e pressione a tecla TAB para autocompletar o comando. Agora pressione ENTER. O programa será executado.
+* Digite no terminal o comando "py main" e pressione a tecla TAB para autocompletar o comando. Agora pressione ENTER. O programa será executado.
 
       
