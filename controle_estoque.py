@@ -1,11 +1,11 @@
 import pandas as pd
 import os
 
-stock = []
+stock = {}
 
 # START OF THE PROGRAM
 def main():
-    os.system("Clear")
+    os.system("cls")
     print("🔴 BEM VINDO!\n")
     print("(1) Iniciar com estoque vazio")
     print("(2) Carregar estoque demonstrativo")
@@ -41,7 +41,7 @@ def loadDemoStock():
         global stock
         stock = json.load(my_json)
 
-    os.system("Clear")
+    os.system("cls")
     print("ESTOQUE DEMONSTRATIVO CARREGADO!")
 
 # TAKES A CATEGORY AS INPUT AND RETURNS AN ARRAY WITH ITS PRODUCTS AMOUNT AND ITS PRODUCTS BALANCE
@@ -52,30 +52,58 @@ def getAmountAndBalance(category):
     for product in stock[category]:
         
         amount += product["Amount"]
-        balance += round(product["Price"] * product["Amount"], 2)
-        return [f"{amount} produtos", f"R$ {balance}"]
-        
+        print(f'Produto: {product["Name"]}; Preço: {product["Price"]}; Quantidade: {product["Amount"]}')
+        balance += float(product["Price"]) * int(product["Amount"])
+        return [f"{amount} produtos | ", f"R$ {round(balance, 2)}"]
+
+def getPhysicalBalance():
+    amount = 0
+    global stock
+    for category in stock:
+        for product in stock[category]:
+            amount += product["Amount"]
+    return amount
+
+def getMonetaryBalance():
+    stockValue = 0
+    global stock
+    for category in stock:
+        for product in stock[category]:
+            stockValue += float(product["Price"])
+    return round(stockValue, 2)
+
+
 # UPTADE STOCK STATUS
 def updateStockStatus():
     physicalBalance = 0
     monetaryBalance = 0
-    columns = ["SALDO FÍSICO", "SALDO MONETÁRIO"]
+    columns = ["SALDO FÍSICO | ", "SALDO MONETÁRIO"]
     rows = []
     data = []
+    global stock
+    
 
     for category in stock:
         rows.append(category)
         data.append(getAmountAndBalance(category))
+
+    physicalBalance = getPhysicalBalance()
+    monetaryBalance = getMonetaryBalance()
     
-    os.system("Clear")
-    print("🔴 INVENTÁRIO DE ESTOQUE AGORA:\n_________________________________________")
+    # os.system("cls")
+    # print("Inside updateStockStatus\n", stock)
+    print("🔴 INVENTÁRIO DE ESTOQUE AGORA:")
 
-    tabela = pd.DataFrame(data=data, index=rows, columns=columns)
-    print(tabela)
+    if physicalBalance > 0:
+        tabela = pd.DataFrame(data=data, index=rows, columns=columns)
+        print("____________________________________________")
+        print(tabela)
+        print("____________________________________________\n")
+        print(f"TOTAL DE PRODUTOS: {physicalBalance}")
+        print(f"VALOR DE ESTOQUE: R$ {monetaryBalance}")
+    else:
+        print("\n⚠️ Sem produtos em estoque!")
 
-    print("_________________________________________\n")
-    print(f"TOTAL DE PRODUTOS: {physicalBalance}")
-    print(f"VALOR DE ESTOQUE: R$ {monetaryBalance}")
     print()
     print("(1) Atualizar inventário de estoque")
     print("(2) Cadastrar um novo produto")
@@ -96,17 +124,56 @@ def updateStockStatus():
 
 # STOCK QUERY
 def stockQuery():
-    os.system("Clear")
+    os.system("cls")
     print("AMBIENTE DE CONSULTA DE ESTOQUE")
 
 # REGISTER FIRST PRODUCTS
 def registerProduct():
-    os.system("Clear")
-    print("AMBIENTE DE CADASTRO DE NOVO PRODUTO")
+    os.system("cls")
+    print("🔴 CADASTRO DE NOVO PRODUTO:")
+    print()
+    print('Digite "cancelar" para cancelar o cadastro e voltar ao inventário de estoque\n')
+    
+    category = input("CATEGORIA: ")
+    if category == "cancelar":
+        return updateStockStatus()
+    code = input("CÓDIGO: ")
+    if code == "cancelar":
+        return updateStockStatus()
+    name = input("PRODUTO: ")
+    if name == "cancelar":
+        return updateStockStatus()
+    description = input("DESCRIÇÃO: ")
+    if description == "cancelar":
+        return updateStockStatus()
+    price = input("PREÇO UNITÁRIO: ")
+    if price == "cancelar":
+        return updateStockStatus()
+    else:
+        price = float(price)
+    amount = input("QUANTIDADE: ")
+    if amount == "cancelar":
+        return updateStockStatus()
+    else:
+        amount = int(amount)
+    
+    newProduct = { "Code": code, "Name": name, "Description": description, "Price": price, "Amount": amount}
+    global stock
+
+    if category in stock:
+        stock[category].append(newProduct)
+    else:
+        stock[category] = [newProduct]
+
+    print("\n✅ PRODUTO CADASTRADO\n")
+    print("Inside registerProduct\n", stock)
+    print('Pressione "ENTER"')
+    input()
+    return updateStockStatus()
 
 # EXIT PROGRAM
 def exitProgram():
-    os.system("Clear")
+    os.system("cls")
     print("\nATÉ MAIS! 😊\n")
 
 # CALL THE START OF THE PROGRAM
