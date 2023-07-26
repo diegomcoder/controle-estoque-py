@@ -5,7 +5,7 @@ from modules import *
 def update_stock_status(stock):
     physicalBalance = 0
     monetaryBalance = 0
-    columns = ["SALDO FÍSICO | ", "SALDO MONETÁRIO"]
+    columns = ["    QUANTIDADES", "    SALDO CATEGORIA"]
     rows = []
     data = []
 
@@ -16,18 +16,27 @@ def update_stock_status(stock):
 
     physicalBalance = methods.get_physical_balance(stock)
     monetaryBalance = methods.get_monetary_balance(stock)
-    
+    data.append(["", ""])
+    data.append([f"{physicalBalance} unidades",f"R$ {monetaryBalance}"])
+    rows.append("")
+    rows.append("TOTAIS")
+
     os.system("cls")
     # print("Inside update_stock_status\n", stock)
     print("🔴 INVENTÁRIO DE ESTOQUE AGORA:")
 
     if physicalBalance > 0:
         tabela = pandas.DataFrame(data=data, index=rows, columns=columns)
-        print("____________________________________________")
+        print("_______________________________________________\n")
         print(tabela)
-        print("____________________________________________\n")
+
+        """
+        print("_______________________________________________\n")
         print(f"TOTAL DE PRODUTOS: {physicalBalance}")
         print(f"VALOR DE ESTOQUE: R$ {monetaryBalance}")
+        """
+        
+        print("_______________________________________________\n")
     else:
         print("\n⚠️ Sem produtos em estoque!")
 
