@@ -1,4 +1,4 @@
-from .update_stock_status import update_stock_status
+import methods
 import os
 
 # REGISTER FIRST PRODUCTS
@@ -10,24 +10,30 @@ def register_product(stock):
     
     category = input("CATEGORIA: ")
     if category == "cancelar":
-        return update_stock_status(stock)
+        methods.update_stock_status(stock)
+        return
     code = input("CÓDIGO: ")
     if code == "cancelar":
-        return update_stock_status(stock)
+        methods.update_stock_status(stock)
+        return
     name = input("PRODUTO: ")
     if name == "cancelar":
-        return update_stock_status(stock)
+        methods.update_stock_status(stock)
+        return
     description = input("DESCRIÇÃO: ")
     if description == "cancelar":
-        return update_stock_status(stock)
+        methods.update_stock_status(stock)
+        return
     price = input("PREÇO UNITÁRIO: ")
     if price == "cancelar":
-        return update_stock_status(stock)
+        methods.update_stock_status(stock)
+        return
     else:
         price = float(price)
     amount = input("QUANTIDADE: ")
     if amount == "cancelar":
-        return update_stock_status(stock)
+        methods.update_stock_status(stock)
+        return
     else:
         amount = int(amount)
     
@@ -42,4 +48,4 @@ def register_product(stock):
     # print("Inside register_product\n", stock)
     print('Pressione "ENTER"')
     input()
-    return update_stock_status(stock)
+    return methods.update_stock_status(stock)

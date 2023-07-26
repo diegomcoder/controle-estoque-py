@@ -1,10 +1,4 @@
-from methods import get_user_command
-from methods import get_amount_and_balance
-from methods import exit_program
-from methods import stock_query
-from methods import register_product
-from methods import get_physical_balance
-from methods import get_monetary_balance
+import methods
 import pandas as pd
 import os
 
@@ -18,10 +12,10 @@ def update_stock_status(stock):
 
     for category in stock:
         rows.append(category)
-        data.append(get_amount_and_balance(stock, category))
+        data.append(methods.get_amount_and_balance(stock, category))
 
-    physicalBalance = get_physical_balance(stock)
-    monetaryBalance = get_monetary_balance(stock)
+    physicalBalance = methods.get_physical_balance(stock)
+    monetaryBalance = methods.get_monetary_balance(stock)
     
     os.system("cls")
     # print("Inside update_stock_status\n", stock)
@@ -44,13 +38,13 @@ def update_stock_status(stock):
     print("(4) Fechar o controle de estoque")
 
     amountOfOptions = 4
-    userCommand = get_user_command(amountOfOptions)
+    userCommand = methods.get_user_command(amountOfOptions)
 
     if userCommand == "4":
-        exit_program()
+        methods.exit_program()
     elif userCommand == "3":
-        stock_query(stock)
+        methods.stock_query(stock)
     elif userCommand == "2":
-        register_product(stock)
+        methods.register_product(stock)
     else:
         update_stock_status(stock)

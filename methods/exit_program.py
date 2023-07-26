@@ -1,4 +1,4 @@
-import os
+from modules import *
 
 # EXIT PROGRAM
 def exit_program():

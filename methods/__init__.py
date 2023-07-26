@@ -4,4 +4,6 @@ from .get_user_command import get_user_command
 from .load_demo_stock import load_demo_stock
 from .update_stock_status import update_stock_status
 from .register_product import register_product
+from .get_physical_balance import get_physical_balance
+from .get_monetary_balance import get_monetary_balance
 from .get_amount_and_balance import get_amount_and_balance
