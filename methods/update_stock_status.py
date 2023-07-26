@@ -1,6 +1,5 @@
 import methods
-import pandas as pandas
-import os
+from modules import *
 
 # UPTADE STOCK STATUS
 def update_stock_status(stock):
@@ -43,6 +42,7 @@ def update_stock_status(stock):
 
     if userCommand == "4":
         methods.exit_program()
+        return
     elif userCommand == "3":
         methods.stock_query(stock)
     elif userCommand == "2":

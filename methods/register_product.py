@@ -28,14 +28,33 @@ def register_product(stock):
     if price == "cancelar":
         methods.update_stock_status(stock)
         return
-    else:
-        price = float(price)
+    else:        
+        try:
+            price = float(price)
+        except ValueError:
+            os.system("cls")
+            print("\n🚫 ERRO:\n")
+            print("O preço tem que ser um número inteiro positivo\n\n\n\n")
+            input('Pressione "ENTER" para recomeçar o cadastro... ')
+            register_product(stock)
+            return
+
+    print(price)
+
     amount = input("QUANTIDADE: ")
     if amount == "cancelar":
         methods.update_stock_status(stock)
         return
     else:
-        amount = int(amount)
+        try:
+            amount = int(amount)
+        except ValueError:
+            os.system("cls")
+            print("\n🚫 ERRO:\n")
+            print("A quantidade tem que ser um numero natural\n\n\n\n")
+            input('Pressione "ENTER" para recomeçar o cadastro... ')
+            register_product(stock)
+            return
     
     newProduct = { "Code": code, "Name": name, "Description": description, "Price": price, "Amount": amount}
 
@@ -44,8 +63,6 @@ def register_product(stock):
     else:
         stock[category] = [newProduct]
 
-    print("\n✅ PRODUTO CADASTRADO\n")
-    # print("Inside register_product\n", stock)
-    print('Pressione "ENTER"')
-    input()
+    print("\n✅ PRODUTO CADASTRADO\n\n")
+    input('Pressione "ENTER" para continuar ')
     return methods.update_stock_status(stock)

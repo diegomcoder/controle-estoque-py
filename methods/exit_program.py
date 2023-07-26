@@ -3,4 +3,5 @@ from modules import *
 # EXIT PROGRAM
 def exit_program():
     os.system("cls")
-    print("\nATÉ MAIS! 😊\n")
+    print("\n\n\nATÉ MAIS! 😊\n\n\n")
+    quit()
