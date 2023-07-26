@@ -21,6 +21,8 @@
     Agora verifique se está funcionando corretamente, usando o comando: pip show pandas. Se estiver tudo certo, você verá várias informações, como Name, Version, Summary etc.
 
 ## PASSOS PARA EXECUTAR O PROJETO
-* Baixe esse projeto, clicando no botão azul ![Alt text](image.png), e depois em "Download ZIP";
+* Baixe esse projeto, clicando no botão azul "Code", e depois em "Download ZIP";
+* Extraia o projeto, entre no interior da pasta "controle-estoque-py-main" até encontrar os arquivos e uma pasta, clique com o botão direito do mouse e escolha a opção "Abrir no terminal";
+* Digite no terminal o comando "python con" e pressione a tecla TAB para autocompletar o comando. Agora pressione ENTER. O programa será executado.
 
       
