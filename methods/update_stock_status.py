@@ -3,8 +3,8 @@ from modules import *
 
 # UPTADE STOCK STATUS
 def update_stock_status(stock):
-    physicalBalance = 0
-    monetaryBalance = 0
+    physical_balance = 0
+    monetary_balance = 0
     columns = ["    QUANTIDADES", "    SALDO CATEGORIA"]
     rows = []
     data = []
@@ -14,28 +14,21 @@ def update_stock_status(stock):
 
     data = methods.get_amount_and_balance(stock)
 
-    physicalBalance = methods.get_physical_balance(stock)
-    monetaryBalance = methods.get_monetary_balance(stock)
+    physical_balance = methods.get_physical_balance(stock)
+    monetary_balance = methods.get_monetary_balance(stock)
     data.append(["", ""])
-    data.append([f"{physicalBalance} unidades",f"R$ {monetaryBalance}"])
+    data.append([f"{physical_balance} produtos",f"R$ {monetary_balance}"])
     rows.append("")
     rows.append("TOTAIS")
 
+    print("\n\n\n")
     os.system("cls")
-    # print("Inside update_stock_status\n", stock)
     print("🔴 INVENTÁRIO DE ESTOQUE AGORA:")
 
-    if physicalBalance > 0:
+    if physical_balance > 0:
         tabela = pandas.DataFrame(data=data, index=rows, columns=columns)
         print("_______________________________________________\n")
         print(tabela)
-
-        """
-        print("_______________________________________________\n")
-        print(f"TOTAL DE PRODUTOS: {physicalBalance}")
-        print(f"VALOR DE ESTOQUE: R$ {monetaryBalance}")
-        """
-        
         print("_______________________________________________\n")
     else:
         print("\n⚠️ Sem produtos em estoque!")
@@ -46,15 +39,15 @@ def update_stock_status(stock):
     print("(3) Fazer uma consulta de estoque")
     print("(4) Fechar o controle de estoque")
 
-    amountOfOptions = 4
-    userCommand = methods.get_user_command(amountOfOptions)
+    options_amount = 4
+    chosen_command = methods.get_user_command(options_amount)
 
-    if userCommand == "4":
+    if chosen_command == "4":
         methods.exit_program()
         return
-    elif userCommand == "3":
+    elif chosen_command == "3":
         methods.stock_query(stock)
-    elif userCommand == "2":
+    elif chosen_command == "2":
         methods.register_product(stock)
     else:
         update_stock_status(stock)

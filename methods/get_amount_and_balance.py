@@ -6,9 +6,14 @@ def get_amount_and_balance(stock):
         amount = 0
         balance = 0
 
-        for product in stock[category]:
+        category = stock[category]
+
+        for product in category:
             amount += product["Amount"]
             balance += float(product["Price"]) * int(product["Amount"])
-        data.append([f"{amount} unidades", f" R$ {round(balance, 2)}"])
+
+            vector = [f"{amount} produtos", f" R$ {round(balance, 2)}"]
+
+        data.append(vector)
 
     return data

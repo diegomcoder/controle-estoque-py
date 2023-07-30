@@ -1,11 +1,14 @@
 # TAKE AS IMPUT THE NUMBER OF SELECTABLE COMMANDS AND RETURN A NUMBER THAT REPRESENTS THE USER'S CHOICE
 def get_user_command(param):
-    optionsNumbers = []
+    options_numbers = []
 
     for i in range(param):
-        optionsNumbers.append(f"{i +1}")
+        options_numbers.append(f"{i +1}")
     
     while True:
-        userInput = input('\nINSIRA O NÚMERO DO COMANDO DESEJADO AQUI 👉 ')
-        if userInput in optionsNumbers:
-            return userInput
+        user_input = input('\nINSIRA O NÚMERO DO COMANDO DESEJADO AQUI 👉 ')
+
+        if user_input in options_numbers:
+            return user_input
+        else:
+            print("🚫 COMMANDO INVÁLIDO!")

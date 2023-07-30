@@ -3,6 +3,7 @@ import os
 
 # REGISTER FIRST PRODUCTS
 def register_product(stock):
+    print("\n\n\n")
     os.system("cls")
     print("🔴 CADASTRO DE NOVO PRODUTO:")
     print()
