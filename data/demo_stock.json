@@ -2,28 +2,19 @@
     "Audio": [
         {"Code": "0001", "Name": "Soundbar Sony MC370", "Description": "Barra de som de 2.1 canais com subwoofer 5 polegadas", "Price": 989.48, "Amount": 25},
         {"Code": "0002", "Name": "Caixa som Bombox", "Description": "Caixa de som JBL 30w portatil e à prova dagua", "Price": 2123.54, "Amount": 33}
-    ],
-
-    "Móveis": [
+    ], "Móveis": [
         {"Code": "0003", "Name": "Escrivaninha Movesa", "Description": "Escrivaninha mdf 1.2cm 1.5cm de qualidade", "Price": 562.99, "Amount": 19}
-    ],
-    
-    "Games": [
+    ], "Games": [
         {"Code": "0004", "Name": "Principe da Pérsia Xbox-one", "Description": "Jogo X-Box One Principe da Persia com poster 3x4", "Price": 480.99, "Amount": 126}
-    ],
-    
-    "Informática": [
+    ], "Informática": [
         {"Code": "0005", "Name": "Notebook Samsung Essentials E20", "Description": "Notebook da Samsung com 1TB HD Core i3 8GB RAM tela FullHD", "Price": 2498.56, "Amount": 18},
         {"Code": "0006", "Name": "Impressora HP IL2607", "Description": "Impressora HP jato de tinta multifuncional com WI-FI", "Price": 879.05, "Amount": 22},
         {"Code": "0013", "Name": "Monitor AOC 23,8\"", "Description": "O monitor possui saída de áudio P2 para fone de ouvido (não possui caixas de som)", "Price": 629.10, "Amount": 33},
         {"Code": "0014", "Name": "Bright Combo Teclado e Mouse", "Description": "Teclado e mouse sf slim 2, teclado com apoio ergonômico padrão ABNT2 com 107 teclas e mouse ambidestro", "Price": 69.98, "Amount": 10}
-    ],
-    
-    "Livros": [
+    ], "Livros": [
         {"Code": "0007", "Name": "O Menino de Pijama Listrado", "Description": "O Livro conta a história de um menino que, levado pela curiosidade...", "Price": 67.99, "Amount": 41},
         {"Code": "0008", "Name": "Comece Pelo Porquê", "Description": "Um livro de Simon sinek que aborda o principal questionamento ...", "Price": 29.99, "Amount": 28}], "Mercado": [{"Code": "568734", "Name": "Sabão em pó Brilhante", "Description": "Sabão em Pó Brilhante Cuidado Total - Roupas Brancas e Coloridas Original 1,6kg", "Price": 28.9, "Amount": 326}
-    ],
-    "Eletrônicos": [
+    ], "Eletrônicos": [
         {"Code": "0009", "Name": "Televisão Smart 70′", "Description": "Televisão smart de 70 polegadas, para você assistir a filmes e séries com o maior que a tecnologia pode oferecer. Aproveite!", "Price": 4799.99, "Amount": 22},
         {"Code": "0010", "Name": "Air Fryer Mondial", "Description": "Air Fryer Mondial com capacidade 4L, 1500W de potência, temperatura até 200ºC e timer de 60min", "Price": 360.04, "Amount": 35},
         {"Code": "0011", "Name": "Lâmpada Elgin RGB 10W", "Description": "Lâmpada Elgin inteligente RGB 10W Wi-Fi compatível com Alexa e Google Home", "Price": 51.91, "Amount": 98},
