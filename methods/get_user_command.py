@@ -9,6 +9,6 @@ def get_user_command(param):
         user_input = input('\nINSIRA O NÚMERO DO COMANDO DESEJADO AQUI 👉 ')
 
         if user_input in options_numbers:
-            return user_input
+            return int(user_input)
         else:
             print("🚫 COMMANDO INVÁLIDO!")

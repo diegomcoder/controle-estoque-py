@@ -6,7 +6,7 @@ def stock_query(stock):
     print("\n\n\n")
     os.system("cls")
     print("🔴 CONSULTA DE ESTOQUE")
-    print()
+    print("\n\nO que deseja fazer?\n")
     print("(1) Listar produtos de uma categoria")
     print("(2) Listar produtos segundo o preço")
     print("(3) Voltar ao inventário de estoque")

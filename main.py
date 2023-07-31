@@ -16,9 +16,9 @@ print("(3) Fechar o controle de estoque")
 amount_of_options = 3
 user_input = get_user_command(amount_of_options)
 
-if user_input == "3":
+if user_input == 3:
     exit_program()
-elif user_input == "2":
+elif user_input == 2:
     stock = load_demo_stock()
     update_stock_status(stock)
 else:
