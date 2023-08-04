@@ -1,3 +1,5 @@
+![image](https://github.com/diegomdsv/controle-estoque-py/assets/74707450/53f93c1b-6d6d-4e53-a7c5-71d44d071105)
+
 ## PARA EXECUTAR ESSE PROJETO É PRECISO TER OS SEGUINTES RECURSOS:
 * Ter o interpretador Python e o gerenciador pip instalados no seu computador
 * Ter a biblioteca Pandas também instalada em sua máquina
