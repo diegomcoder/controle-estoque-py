@@ -16,6 +16,7 @@ def category_listing(stock):
         columns = ["  CÓDIGO", "  QUANTIDADE", "  PREÇO UNITÁRIO", "  VALOR DE ESTOQUE"]
         rows = []
 
+        os.system("cls")
         print(f"🔴 PRODUTOS DA CATEGORIA {chosen_category.upper()}:")
 
         for category in stock:

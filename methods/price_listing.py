@@ -44,7 +44,8 @@ def price_listing(stock):
     data = []
     columns = ["  CÓDIGO", "  QUANTIDADE", "  PREÇO UNITÁRIO", "  VALOR DE ESTOQUE"]
     rows = []
-
+    
+    os.system("cls")
     print(f"🔴 PRODUTOS ENTRE R$ {user_minimum_price} E R$ {user_maximum_price}:")
 
     for category in stock:
