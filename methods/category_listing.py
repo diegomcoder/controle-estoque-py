@@ -1,14 +1,22 @@
 import methods
 from modules import *
+import json
+with open('./data/msg.json', encoding="utf-8") as my_json:
+    msg = json.load(my_json)
 
-def category_listing(stock):
+lang = "pt"
+msg = msg[lang]
+
+def print_existing_categories(stock):
     os.system("cls")
-    print("\nCATEGORIAS EXISTENTES:")
-
+    print(msg["existing_categories"])
     for category in stock:
         print(category)
 
-    chosen_category = input("\nDigite o nome da categoria desejada aqui 👉")
+def category_listing(stock):
+    print_existing_categories(stock)
+
+    chosen_category = methods.prompt_user_for_data("^.{3,}$", msg["enter_desired_category"])
 
     print()
     if chosen_category in stock:
@@ -39,13 +47,10 @@ def category_listing(stock):
                 print(table)
 
         print()
-        print("(1) Listar produtos de outra categoria")
-        print("(2) Listar produtos segundo o preço")
-        print("(3) Voltar ao inventário de estoque")
-        print("(4) Fechar o controle de estoque")
+        methods.print_menu("list_other_category", "List_by_price", "back_to_inventory", "exit_stock_control")
 
-        options_amount = 4
-        chosen_command = methods.get_user_command(options_amount)
+        input_text = methods.prompt_user_for_data("^[1-4]$", msg["enter_command"])
+        chosen_command = int(input_text)
 
         if chosen_command == 4:
             methods.exit_program()
@@ -58,6 +63,7 @@ def category_listing(stock):
             category_listing(stock)
 
     else:
-        print("Essa categoria não existe :-(\n\n")
+        input('\n🚫 Essa categoria não existe :-(\n\nPressione "Enter" para continuar  ')
+        category_listing(stock)
 
 

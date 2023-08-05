@@ -1,0 +1,28 @@
+{
+    "pt": {
+        "welcome": "🔴 BEM VINDO!\n",
+        "start_empty_stock": "Iniciar com estoque vazio",
+        "load_demo_stock": "Carregar estoque demonstrativo",
+        "list_other_category": "Listar produtos de outra categoria",
+        "List_by_price": "Listar produtos segundo o preço",
+        "back_to_inventory": "Voltar ao inventário de estoque",
+        "exit_stock_control": "Fechar o controle de estoque",
+        "existing_categories": "CATEGORIAS EXISTENTES",
+        "enter_command": "\nINSIRA O NÚMERO DO COMANDO DESEJADO AQUI 👉 ",
+        "enter_desired_category": "DIGITE O NOME DA CATEGORIA DESEJADA AQUI 👉 ",
+        "bye": "\nAté mais! 😊\n"
+    },
+    "en": {
+        "welcome": "🔴 Welcome!\n",
+        "start_empty_stock": "Start with empty stock",
+        "load_demo_stock": "Load demonstrative stock",
+        "list_other_category": "List products from another category",
+        "List_by_price": "List products by price",
+        "back_to_inventory": "Back to stock inventory",
+        "exit_stock_control": "Exit stock control",
+        "existing_categories": "EXISTING CATEGORIES",
+        "enter_command": "\nENTER THE DESIRED COMMAND HERE 👉 ",
+        "enter_desired_category": "ENTER THE NAME OF THE DESIRED CATEGORY HERE 👉 ",
+        "bye": "\nGoodBye! 😊\n"
+    }
+}
