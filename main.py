@@ -1,5 +1,5 @@
 from methods import exit_program
-from methods import get_user_command
+# from methods import get_user_command
 from methods import load_demo_stock
 from methods import update_stock_status
 from methods import prompt_user_for_data
