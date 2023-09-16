@@ -14,11 +14,12 @@ def db_init():
         # cursor.execute("CREATE TABLE products(name, description, price, amount)")
         cursor.execute('''
         CREATE TABLE produtos (
-            id_produto INTEGER PRIMARY KEY,
-            nome TEXT NOT NULL,
-            descricao TEXT,
-            preco_unitario REAL NOT NULL,
-            quantidade_estoque INTEGER NOT NULL
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            category TEXT NOT NULL,
+            description TEXT,
+            unitary_price REAL NOT NULL,
+            quantity_in_stock INTEGER NOT NULL
         )
         ''')
 
