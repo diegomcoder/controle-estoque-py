@@ -1,11 +1,11 @@
 # descrição, preço unitario, categoria
 class Product:
     def __init__(self, name, category, description, unitary_price, quantity_in_stock):
-        self.__name = self.__set_name(name)
-        self.__category = self.__set_category(category)
-        self.__description = self.__set_description(description)
-        self.__unitary_price = self.__set_price(unitary_price)
-        self.__quantity_in_stock = self.__set_quantity(quantity_in_stock)
+        self.__set_name(name)
+        self.__set_category(category)
+        self.__set_description(description)
+        self.__set_price(unitary_price)
+        self.__set_quantity(quantity_in_stock)
         
     def __set_name(self, name):
         self.__name = name
