@@ -1,20 +1,13 @@
+import os
+import sqlite3
+
 class Stock:
     capacity = 100
-    __conn = None
+    __conn = sqlite3.connect('database/db/stock.db')
     
     @staticmethod
-    def __create_connection():
-        import sqlite3
-        try:
-            Stock.__conn = sqlite3.connect('database/db/stock.db')
-            print(sqlite3.version)
-        except sqlite3.Error as e:
-            print(e)
-        
-
-    def __close_connection():
-        Stock.__conn.close()
-
+    def init_db():
+        Stock.__create_table()
 
     def __create_table():
         try:
@@ -32,7 +25,6 @@ class Stock:
             print("Table created")
         except sqlite3.Error as e:
             print(e)
-    
 
     def add_product(product):
         try:
@@ -48,15 +40,11 @@ class Stock:
         except sqlite3.Error as e:
             print(e)
 
-
     def exists():
-        import os
         return os.path.exists('database/db/stock.db')
-
 
     def get_level():
         return (Stock.sum_quantities() / Stock.capacity) * 100
-
 
     def get_avg_price():
         try:
@@ -69,7 +57,6 @@ class Stock:
         except sqlite3.Error as e:
             print(e)
 
-
     def get_balance():
         try:
             cur = Stock.__conn.cursor()
@@ -78,7 +65,6 @@ class Stock:
             return balance
         except sqlite3.Error as e:
             print(e)
-
 
     def get_categories():
         try:
@@ -89,7 +75,6 @@ class Stock:
         except sqlite3.Error as e:
             print(e)
 
-
     def get_max_price():
         try:
             cur = Stock.__conn.cursor()
@@ -98,7 +83,6 @@ class Stock:
             return max_price
         except sqlite3.Error as e:
             print(e)
-
 
     def get_min_price():
         try:
@@ -109,7 +93,6 @@ class Stock:
         except sqlite3.Error as e:
             print(e)
 
-
     def list_products():
         try:
             cur = Stock.__conn.cursor()
@@ -117,7 +100,6 @@ class Stock:
                 print(row)
         except sqlite3.Error as e:
             print(e)
-
 
     def sum_quantities():
         try:

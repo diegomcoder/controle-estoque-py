@@ -15,14 +15,11 @@ def main():
         Product("Lenovo Ideapad 32A", "Notebooks", "Notebook Lenovo Intel Core i5 480GB SSD ...", 3262.12, 6)
     ]
 
-    if not Stock.exists():
-        Stock.__create_connection()
-        Stock.__create_table()
-
-        for product in products:
-            Stock.add_product(product)
-        print(Stock.list_products())
-        Stock.__close_connection()
+    #Stock.init_db()
+    #for product in products:
+        #Stock.add_product(product)
+    
+    print(Stock.list_products())
     
     #print_stock_status()
 
