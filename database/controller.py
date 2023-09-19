@@ -1,17 +1,129 @@
-from database import create_connection, create_table, add_product, list_products, close_connection
-from models.product import Product
+class Stock:
+    capacity = 100
+    __conn = None
+    
+    @staticmethod
+    def __create_connection():
+        import sqlite3
+        try:
+            Stock.__conn = sqlite3.connect('database/db/stock.db')
+            print(sqlite3.version)
+        except sqlite3.Error as e:
+            print(e)
+        
 
-products = [
-    Product("Smart TV 32'", "Vídeo", "Smart TV Samsung 32 pol com Android ...", 1299.89, 12),
-    Product("Samsung Galaxy A14", "Smartphones", "Smartphone Samsung Galaxy A14 120GB ...", 989.55, 34),
-    Product("Air frier", "Cozinha", "Fritadeira sem oleo air frier ...", 340.82, 13),
-    Product("Lenovo Ideapad 32A", "Notebooks", "Notebook Lenovo Intel Core i5 480GB SSD ...", 3262.12, 6)
-]
+    def __close_connection():
+        Stock.__conn.close()
 
-def implement_db():
-    conn = create_connection()
-    create_table(conn)
-    for product in products:
-        add_product(conn, product)
-    list_products(conn)
-    close_connection(conn)
+
+    def __create_table():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute('''
+            CREATE TABLE stock (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                category TEXT NOT NULL,
+                description TEXT,
+                unitary_price REAL NOT NULL,
+                quantity_in_stock INTEGER NOT NULL
+            )
+            ''')
+            print("Table created")
+        except sqlite3.Error as e:
+            print(e)
+    
+
+    def add_product(product):
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("INSERT INTO stock (name, category, description, unitary_price, quantity_in_stock) VALUES (?,?,?,?,?)",
+                        (product.get_name(),
+                        product.get_category(),
+                        product.get_description(),
+                        product.get_price(),
+                        product.get_quantity()))
+            Stock.__conn.commit()
+            print("Product added")
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def exists():
+        import os
+        return os.path.exists('database/db/stock.db')
+
+
+    def get_level():
+        return (Stock.sum_quantities() / Stock.capacity) * 100
+
+
+    def get_avg_price():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("SELECT SUM (unitary_price) FROM stock")
+            prices = cur.fetchone()[0]
+            cur.execute("SELECT COUNT (*) FROM stock")
+            rows = cur.fetchone()[0]
+            return prices / rows
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def get_balance():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("SELECT SUM (unitary_price * quantity_in_stock) FROM stock")
+            balance = cur.fetchone()[0]
+            return balance
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def get_categories():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("SELECT COUNT (DISTINCT category) FROM stock")
+            category_count = cur.fetchone()[0]
+            return category_count
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def get_max_price():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("SELECT MAX (unitary_price) FROM stock")
+            max_price = cur.fetchone()[0]
+            return max_price
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def get_min_price():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("SELECT MIN (unitary_price) FROM stock")
+            min_price = cur.fetchone()[0]
+            return min_price
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def list_products():
+        try:
+            cur = Stock.__conn.cursor()
+            for row in cur.execute('SELECT * FROM stock ORDER BY id'):
+                print(row)
+        except sqlite3.Error as e:
+            print(e)
+
+
+    def sum_quantities():
+        try:
+            cur = Stock.__conn.cursor()
+            cur.execute("SELECT SUM (quantity_in_stock) FROM stock")
+            sum = cur.fetchone()[0]
+            return sum
+        except sqlite3.Error as e:
+            print(e)
